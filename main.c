@@ -1,4 +1,5 @@
 #include <stdio.h>
+#include <stdlib.h>
 #include <math.h>
 
 int main() {
@@ -17,6 +18,14 @@ int main() {
         scanf("%i", &start);
     }
 
+    if(start == 1)
+        printf("1 was your choice");
+    else if(start == 2)
+        printf("2 was your choice");
+    else if(start == 3) {
+        printf("End of program..");
+        exit(0);
+    }
 
 
     return 0;
