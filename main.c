@@ -20,17 +20,20 @@ int main() {
     }
 
     if (start == 1){
-        printf("Please enter your bill:");
+        printf("Please enter your water consumption:");
         scanf("%f", &billCalc);
 
         if (billCalc <= 5.49){
             total = billCalc * 0.20;
+            total = total + ((0.95 * total) * 0.25) + 10 + (91 * 0.10);
         }
         else if (billCalc > 5.49 && billCalc <= 12.49){
-            total = ((billCalc - 5.49) * 0.35) + (5.49 * 0.2);
+            total = ((billCalc - 5.49) * 0.35) + (5.49 * 0.20);
+            total = total + ((0.95 * total) * 0.25) + 10 + (91 * 0.10);
         }
         else if (billCalc > 12.49 && billCalc <= 25.49){
-            total = ((billCalc - 12.49) * 0.5) + ((billCalc - 5.49) * 0.35) + (5.49 * 0.2);
+            total = ((billCalc - 12.49) * 0.50) + ((billCalc - 5.49) * 0.35) + (5.49 * 0.20);
+            total = total + ((0.95 * total) * 0.25) + 10 + (91 * 0.10);
         }
 
         printf("%f", total);
