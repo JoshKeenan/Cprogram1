@@ -5,8 +5,8 @@
 int main() {
 
     // Initialisation of variables by type
-    int billCalc, start, quit, resCom, standing;
-    float total, waterCharge, waste, surface;
+    int billCalc, start, quit, resCom, standing, totalWaterConsum, domesticConsum;
+    float total, waterCharge, waste, surface, totalVat, revenue;
 
     while (quit != 1) {
         // Test user input and provide response
@@ -47,7 +47,9 @@ int main() {
                     surface = (91 * 0.1);
                     waste = (0.95 * billCalc) * 0.25;
                     total = waterCharge + waste + standing + surface;
-                    printf("\nCustomer type: Residential\n");
+                    domesticConsum = domesticConsum + billCalc;
+                    printf("\nTotal cost: %f\n", total);
+                    printf("Customer type: Residential\n");
                     printf("VAT: %i\n", 0);
                 }
 
@@ -57,7 +59,8 @@ int main() {
                     waste = (0.95 * billCalc) * 2;
                     waterCharge = (billCalc * 2.5);
                     total = waterCharge + waste + standing + surface;
-                    total = total + (total * 0.2);
+                    totalVat = total + (total * 0.2);
+                    printf("Total cost: %f\n", totalVat);
                     printf("\nCustomer type: Commercial\n");
                     printf("VAT: %f\n", (total * 0.2));
                 }
@@ -67,13 +70,18 @@ int main() {
                 printf("Surface water charge: %i\n", 10);
                 printf("Standing charge: %i\n", standing);
                 printf("Water charge: %f\n", waterCharge);
-                printf("Total cost: %f\n", total);
+
+                revenue = revenue + total;
+                totalWaterConsum = totalWaterConsum + billCalc;
                 resCom = 0;
-                printf("\n\n---------------------------------\n\n");
+                printf("\n---------------------------------\n\n");
 
             }
             else if (start == 2) {
                 printf("2 was your choice\n");
+                printf("Total water consumption: %i\n", totalWaterConsum);
+                printf("Total domestic water consumption: %i\n", domesticConsum);
+                printf("Total revenue: %f", revenue);
                 printf("\n\n---------------------------------\n\n");
             }
 
